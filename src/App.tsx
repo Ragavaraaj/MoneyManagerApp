@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import { Direction } from "./constants/Enums";
+import ArrowButton from "./components/ArrowButton";
+import "./App.css";
+
+const GlobalStyle = createGlobalStyle`
+  *{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="main">
+      <GlobalStyle />
+      <ArrowButton imageOn={Direction.Left}>Analysis</ArrowButton>
+      <br />
+      <br />
+      <ArrowButton imageOn={Direction.Right}>Back</ArrowButton>
     </div>
   );
 }
