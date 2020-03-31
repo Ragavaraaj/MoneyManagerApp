@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import Arrow from "../icons/Arrow.svg"
+import Arrow from "../../icons/Arrow.svg"
 
 const Image = styled.img<{ flip: boolean }>`
   ${props => (props.flip ? "transform: rotate(180deg)" : "")};
@@ -16,8 +16,9 @@ const Label = styled.label`
 
 
 const Grid = styled.div`
+  width: 100%;
   display: grid;
-  grid-template: auto / 1fr 1fr;
+  grid-template: auto / auto 30px;
 `;
 
 interface Props {
@@ -39,7 +40,7 @@ const ArrowButton: FunctionComponent<Props> = props => {
     case "right":
       imageLabel = (
           <Grid>
-            <Image src="" alt={"go" + props.children} flip={true} />
+            <Image src="" alt={"go to" + props.children} flip={true} />
             <Label>{props.children}</Label>
           </Grid>
       );

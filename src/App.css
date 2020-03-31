@@ -15,29 +15,66 @@
   height: 400px;
 }
 
-.topdiv{
+.bigbutton {
+  width: 150px;
+  height: 150px;
+}
+
+.Form, .FormOverlay{
+  position: sticky;
+  bottom: 0;
+  border-radius: 50px 50px 0px 0px;
   width: 100%;
-  height: 64px;
+  height: 450px;
+  padding: 18px 28px;
+  z-index: 1;
+  background-color: rgb(50, 50, 50);
+}
+
+.FormOverlay{
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
+  background-color:rgba(50, 50, 50, 0.8);
+  z-index: 2;
+}
+
+
+.Menu{
+  width: 100%;
+  height: 42px;
   display: grid;
-  grid-template-columns: 64px auto 85px;
-  column-gap: 2px;
-}
-
-
-.stack {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-.button {
-  display: flex;
+  grid-template: auto / 38px auto 38px;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
+}
+ .Title{
+   font-style: normal;
+   font-weight: bold;
+   font-size: 36px;
+   line-height: 42px;
+   color: white;
+ }
+
+.Inputs{
+  margin-top: 30px;
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+  gap: 5px;
+  grid-template-areas: 
+    "TB1 TB2"
+    "TEXT TEXT"
+    "TEXTAREA TEXTAREA"
+    "TB3 TB4"
+  ;
+}
+
+.FromCamera{
+  width: 1fr;
+  height: 1fr;
+}
+
+.FromGalary{
+
 }
 

@@ -1,18 +1,17 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Colors } from "../constants/Colors";
-import Icon from "./Icon";
-import ArrowLabel from "./ArrowLabel";
-import appIcon from "../icons/AppIcon.svg";
-import Button from "./atoms/Button";
+import AppIcon from "../icons/AppIcon.svg";
+import ArrowLabel from "./atoms/ArrowLabel";
+import { PlainButton } from "./atoms/Button";
 
 interface Props {}
 
-const Menu = styled.div`
+const Menu = styled.nav`
   background-color: ${Colors.red};
   width: 100%;
   height: 64px;
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   display: grid;
@@ -21,6 +20,7 @@ const Menu = styled.div`
     "icon title button"
     "icon amount button";
   column-gap: 10px;
+  z-index: 5;
 `;
 
 const Title = styled.label<{ gridArea: string }>`
@@ -40,19 +40,27 @@ const Amount = styled.label<{ gridArea: string }>`
   color: ${Colors.white};
 `;
 
+const Center = styled.div`
+  width: 100%;
+  height: inherit;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+`;
+
 const TopMenu: FunctionComponent<Props> = props => {
   return (
     <Menu>
-      <Button gridArea="icon">
-        <Icon src={appIcon} alt="Bucks Bank" isCircle={false} />
-      </Button>
+      <PlainButton gridArea="icon" bgColor={Colors.black} textColor={Colors.white}>
+        <Center>
+          <img src={AppIcon} alt="Bucks Bank" />
+        </Center>
+      </PlainButton>
       <Title gridArea="title">Amount Left</Title>
       <Amount gridArea="amount">$-50000000</Amount>
-      <Button gridArea="button">
-        <ArrowLabel imageOn="left">
-          Analysis
-        </ArrowLabel>
-      </Button>
+      <PlainButton gridArea="button" textColor={Colors.white} bgColor={Colors.red}>
+        <ArrowLabel imageOn="left">Analysis</ArrowLabel>
+      </PlainButton>
     </Menu>
   );
 };
